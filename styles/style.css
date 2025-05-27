@@ -1,18 +1,23 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
   font-size: 18px;
   font-family: IBM Plex Mono;
-  background-color: var(--bg-color);
+  background-attachment: fixed;
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
   padding: 10px;
 }
 
 html,
 body {
+  margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
+  background-color: var(--bg-color);
 }
 
 .header,
@@ -23,11 +28,8 @@ img {
 }
 
 .header {
-  background-image: var(--bg-image);
-  background-position: center;
-  background-size: cover;
+  height: 100vh;
   block-size: 100%;
-  background-attachment: fixed;
 }
 
 .decorated-zone {
@@ -71,8 +73,8 @@ img {
   text-transform: uppercase;
   position: absolute;
   top: 0;
-  right: 8px;
-  gap: 6px;
+  right: 9px;
+  gap: 5px;
   display: flex;
 }
 
@@ -103,7 +105,8 @@ img {
 }
 
 .header__theme-menu-list {
-  margin-block-start: 30px;
+  margin-block-start: 4.1rem;
+  margin-inline-end: 7px;
   color: var(--btn-color);
   font-family: IBM Plex Mono;
   font-weight: 400;
@@ -111,25 +114,22 @@ img {
   line-height: 18px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 7px;
-  padding-block: 50%;
+  gap: 1rem;
 }
 
 .theme-title {
   font-family: IBM Plex Mono;
   font-weight: 700;
-  font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 83%;
   color: var(--theme-title-color);
   text-shadow: 4px 4px 0 var(--accent-color);
-  margin-block-start: 38px;
+  margin-block-start: 4.3rem;
 }
 
 .header__theme-title-text {
   font-weight: 700;
-  block-size: 117px;
-  margin-block-start: 53px;
+  margin-block-start: 3.5rem;
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
 }
 
@@ -144,13 +144,17 @@ img {
   font-size: 18px;
   line-height: 23.4px;
   color: var(--menu-tx-color);
-  margin-block: 10px;
+  margin-block-start: 10px;
 }
 
 .main__content-list-item h4,
 .main__content-images h4 {
   font-weight: 700;
-  margin-block: 14px;
+  margin-block: 10px;
+}
+
+.main__content-list-item .title-decor {
+  margin-block-start: 20px;
 }
 
 .main__content-list-item p {
@@ -179,11 +183,22 @@ img {
   border: 1px var(--accent-color) solid;
 }
 
+.main__content-images .main__content-list {
+  gap: 10px;
+  display: grid;
+}
+
+.footer {
+  height: 100vh;
+  block-size: 100%;
+}
+
 .footer .theme-title {
   text-align: center;
   padding-block: 17rem;
   text-shadow: 2px 2px 0 var(--accent-color);
   font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
+  margin-block-start: 50px;
 }
 
 @media (width >= 768px) {
@@ -207,19 +222,19 @@ img {
   }
 
   .header__theme-menu-list {
-    padding: 18px;
-    padding-block-start: 8.5em;
+    padding: 10px;
+    padding-block-start: 7.4rem;
   }
 
   .theme-title {
-    font-size: 120px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     margin-block-start: 10rem;
   }
 
   .header__theme-title-text {
     inline-size: 364px;
     margin-inline-start: 23.4rem;
-    margin-block-start: 9em;
+    margin-block-start: 10.5rem;
   }
 
   .main__content {
@@ -228,9 +243,18 @@ img {
     gap: 20px;
   }
 
-  .mid-grid {
-    margin-block-start: 50px;
+  .main__content-list-title {
+    margin-block-start: 20px;
   }
+
+  .mid-grid {
+    margin-block-start: 40px;
+  }
+
+  .mid-grid .main__content-list {
+    margin-block-start: -20px;
+  }
+
   .mid-grid .main__content-list-title {
     width: 236px;
   }
@@ -240,21 +264,25 @@ img {
     width: 472px;
   }
 
+  .main__content-images .title-decor {
+    margin-block-start: 20px;
+  }
+
   .main__content-images .main__content-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    gap: 10px;
   }
 
   .main__content-list-item-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
   }
 
   .main__content-list-item-image:nth-child(1) {
     grid-column: 1 / span 2;
-    grid-row: 1 / span 1;
   }
 
   .main__content-list-item-image:nth-child(2) {
@@ -269,7 +297,6 @@ img {
 
   .main__content-list-item-image:nth-child(4) {
     grid-column: 2 / span 1;
-    grid-row: 2 / span 1;
   }
 
   .main__content-list-item-image:nth-child(5) {
@@ -282,7 +309,7 @@ img {
 
   .footer .theme-title {
     font-size: 120px;
-    padding-block: 28.5rem;
+    padding-block-start: 28.5rem;
   }
 }
 
@@ -301,19 +328,24 @@ img {
   }
 
   .theme-title {
-    margin-block-start: 13rem;
-    font-size: 157px;
+    margin-block-start: 17.5rem;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__theme-title-text {
     height: 71px;
     width: 491px;
-    margin-inline-start: 503px;
-    margin-block-start: 55px;
+    margin-inline-start: 31.5rem;
+    margin-block-start: 7rem;
+  }
+
+  .main__content {
+    gap: 30px;
   }
 
   .main__content-list-title {
     width: 19rem;
+    margin-block-start: 20px;
   }
 
   .grid-box .main__content-list {
@@ -321,13 +353,15 @@ img {
   }
 
   .mid-grid {
-    margin-block-start: 60px;
+    margin-block-start: 40px;
     gap: 0;
   }
 
   .mid-grid .main__content-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-block-start: 0px;
   }
 
   .mid-grid .main__content-list-title,
@@ -340,14 +374,10 @@ img {
     font-weight: 700;
   }
 
-  .main__content-images .title-decor {
-    margin-block: 0;
-  }
-
   .main__content-images .main__content-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
+    margin-block-start: -1.2rem;
   }
 
   .footer {
