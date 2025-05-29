@@ -12,11 +12,12 @@
   --accent-color: #FF8DCB;
   --menu-tx-color: #353430;
   --bg-color: #FFF1F7;
-  --bg-image: url(/images/cover-image-light.png);
+  --bg-image: url(../images/cover-image-light.png);
   --theme-title-color: #FFC2E6;
   --title-decor-color: #353430;
   --tx-color: #353430;
   --btn-color: #353430;
+  --hover-color: #32312D66;
 }
   /* Вам также нужно будет написать ряд подобных селекторов */
 .theme-light .page {
@@ -31,10 +32,11 @@
   --accent-color: #FF8DCB;
   --menu-tx-color: #353430;
   --bg-color: #FFF1F7;
-  --bg-image: url(/images/cover-image-light.png);
+  --bg-image: url(../images/cover-image-light.png);
   --theme-title-color: #FFC2E6;
   --title-decor-color: #353430;
   --tx-color: #353430;
   --btn-color: #353430;
+  --hover-color: #32312D66;
   }
 }

@@ -12,22 +12,11 @@
   --accent-color: #ff0070;
   --menu-tx-color: #FF0070;
   --bg-color: #000028;
-  --bg-image: url(/images/cover-image-dark.png);
+  --bg-image: url(../images/cover-image-dark.png);
   --theme-title-color: #db00ff;
   --title-decor-color: #000028;
   --tx-color: #F1B2CE;
   --btn-color: #ff0070;
+  --hover-color: #FF007066;
 }
 
-.theme-dark .page {
-  /* Вам также нужно будет написать ряд подобных селекторов */
-  --rec-color: #ff0070;
-  --accent-color: #ff0070;
-  --menu-tx-color: #FF0070;
-  --bg-color: #000028;
-  --bg-image: url(/images/cover-image-dark.png);
-  --theme-title-color: #db00ff;
-  --title-decor-color: #000028;
-  --tx-color: #F1B2CE;
-  --btn-color: #ff0070;
-}

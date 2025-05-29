@@ -2,9 +2,10 @@
 /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 .page {
   font-size: 18px;
-  font-family: IBM Plex Mono;
+  font-family: "IBM Plex Mono", monospace;
   background-attachment: fixed;
   background-image: var(--bg-image);
+  background-color: var(--bg-color);
   background-position: center;
   background-size: cover;
   padding: 10px;
@@ -12,12 +13,10 @@
 
 html,
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: var(--bg-color);
 }
 
 .header,
@@ -30,6 +29,8 @@ img {
 .header {
   height: 100vh;
   block-size: 100%;
+  min-height: 668px;
+  display: grid;
 }
 
 .decorated-zone {
@@ -50,7 +51,7 @@ img {
 .decorated-zone::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 0;
   border-bottom: 1px var(--rec-color) solid;
   border-left: 1px var(--rec-color) solid;
@@ -74,7 +75,7 @@ img {
   position: absolute;
   top: 0;
   right: 9px;
-  gap: 5px;
+  gap: 10px;
   display: flex;
 }
 
@@ -88,12 +89,18 @@ img {
   box-shadow: 0 0 4px 2px var(--accent-color);
 }
 
-.header__theme-menu-item:hover {
-  border: 1px var(--menu-tx-color) solid;
+.header__theme-menu-button:hover {
+  border: 1px var(--hover-color) solid;
 }
 
-.header__theme-menu-item:focus-visible {
-  text-decoration: underline;
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-bottom: 1px var(--menu-tx-color) solid;
+}
+
+.header__theme-menu-button_active {
+  border: 1px var(--menu-tx-color) solid;
+  pointer-events: none;
 }
 
 .title-decor {
@@ -124,18 +131,25 @@ img {
   line-height: 83%;
   color: var(--theme-title-color);
   text-shadow: 4px 4px 0 var(--accent-color);
-  margin-block-start: 4.3rem;
+  margin-block-start: 15px;
 }
 
 .header__theme-title-text {
   font-weight: 700;
-  margin-block-start: 3.5rem;
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
+  grid-row: 3;
+  height: 117px;
+  margin-block-end: 20px;
 }
 
 .main__content {
   display: grid;
-  margin-block-start: 40px;
+  margin-block-start: 30px;
+  margin-block-end: 40px;
+}
+
+.mid-grid {
+  margin-block-end: 50px;
 }
 
 .main__content-list-title {
@@ -144,11 +158,10 @@ img {
   font-size: 18px;
   line-height: 23.4px;
   color: var(--menu-tx-color);
-  margin-block-start: 10px;
 }
 
-.main__content-list-item h4,
-.main__content-images h4 {
+.main__content-list-item .title-decor,
+.main__content-images .title-decor {
   font-weight: 700;
   margin-block: 10px;
 }
@@ -176,11 +189,20 @@ img {
 }
 
 .main__content-list-item-link:hover {
-  text-decoration: underline;
+  border-bottom: 1px var(--tx-color) solid;
 }
 
 .main__content-list-item-link:focus-visible {
-  border: 1px var(--accent-color) solid;
+  border: 1px var(--tx-color) solid;
+  outline: none;
+}
+
+.mid-grid .main__content-list-title {
+  margin-block-start: 10px;
+}
+
+.mid-grid .main__content-list-item {
+  margin-block-start: 5px;
 }
 
 .main__content-images .main__content-list {
@@ -191,21 +213,18 @@ img {
 .footer {
   height: 100vh;
   block-size: 100%;
+  display: grid;
+  min-height: 668px;
 }
 
 .footer .theme-title {
   text-align: center;
-  padding-block: 17rem;
+  padding-block: 15.5rem;
   text-shadow: 2px 2px 0 var(--accent-color);
   font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
-  margin-block-start: 50px;
 }
 
 @media (width >= 768px) {
-  .header {
-    block-size: 100%;
-  }
-
   .decorated-zone::before {
     top: 10px;
     right: 10px;
@@ -228,13 +247,12 @@ img {
 
   .theme-title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    margin-block-start: 10rem;
   }
 
   .header__theme-title-text {
-    inline-size: 364px;
+    max-width: 364px;
+    width: 100%;
     margin-inline-start: 23.4rem;
-    margin-block-start: 10.5rem;
   }
 
   .main__content {
@@ -247,8 +265,14 @@ img {
     margin-block-start: 20px;
   }
 
-  .mid-grid {
+  .grid-box {
+    grid-template-columns: 236px 472px;
     margin-block-start: 40px;
+  }
+
+  .mid-grid {
+    margin-block-start: 50px;
+    margin-block-end: 0px;
   }
 
   .mid-grid .main__content-list {
@@ -256,12 +280,12 @@ img {
   }
 
   .mid-grid .main__content-list-title {
-    width: 236px;
+    max-width: 236px;
+    width: 100%;
   }
 
   .grid-box .main__content-list {
     grid-column: 2;
-    width: 472px;
   }
 
   .main__content-images .title-decor {
@@ -304,12 +328,12 @@ img {
   }
 
   .footer {
-    margin-block-start: 60px;
+    margin-block-start: 3rem;
   }
 
   .footer .theme-title {
     font-size: 120px;
-    padding-block-start: 28.5rem;
+    padding-block-start: 27.5rem;
   }
 }
 
@@ -328,15 +352,15 @@ img {
   }
 
   .theme-title {
-    margin-block-start: 17.5rem;
+    margin-block-start: 11rem;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__theme-title-text {
-    height: 71px;
-    width: 491px;
+    max-width: 491px;
+    width: 100%;
     margin-inline-start: 31.5rem;
-    margin-block-start: 7rem;
+    height: 71px;
   }
 
   .main__content {
@@ -344,33 +368,33 @@ img {
   }
 
   .main__content-list-title {
-    width: 19rem;
     margin-block-start: 20px;
   }
 
-  .grid-box .main__content-list {
-    width: 649px;
+  .grid-box {
+    grid-template-columns: 315px 649px;
+    gap: 20px;
   }
 
   .mid-grid {
-    margin-block-start: 40px;
+    margin-block-start: 50px;
     gap: 0;
+  }
+
+  .mid-grid .main__content-list-title {
+    max-width: 315px;
+    width: 100%;
+    margin-block-end: 15px;
   }
 
   .mid-grid .main__content-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    margin-block-start: 0px;
   }
 
-  .mid-grid .main__content-list-title,
-  .mid-grid .main__content-list-item {
-    width: 315px;
-  }
-
-  .main__content-list-item h4,
-  .main__content-images h4 {
+  .main__content-list-item .title-decor,
+  .main__content-images h2 {
     font-weight: 700;
   }
 
@@ -382,11 +406,11 @@ img {
 
   .footer {
     block-size: 100%;
+    margin-block-start: 3.6rem;
   }
 
   .footer .theme-title {
     font-size: 157px;
-    padding-block: 19rem;
-    margin-block-start: 3rem;
+    margin-block-start: -8rem;
   }
 }
