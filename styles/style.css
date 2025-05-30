@@ -28,9 +28,10 @@ img {
 
 .header {
   height: 100vh;
-  block-size: 100%;
   min-height: 668px;
   display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 4rem;
 }
 
 .decorated-zone {
@@ -65,7 +66,7 @@ img {
 }
 
 .rec {
-  font-family: IBM Plex Mono;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
@@ -105,7 +106,7 @@ img {
 
 .title-decor {
   background-color: var(--accent-color);
-  font-family: IBM Plex Mono;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 18px;
   line-height: 23.4px;
   color: var(--title-decor-color);
@@ -115,7 +116,7 @@ img {
   margin-block-start: 4.1rem;
   margin-inline-end: 7px;
   color: var(--btn-color);
-  font-family: IBM Plex Mono;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
   font-size: 18px;
   line-height: 18px;
@@ -125,21 +126,17 @@ img {
 }
 
 .theme-title {
-  font-family: IBM Plex Mono;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 83%;
   color: var(--theme-title-color);
   text-shadow: 4px 4px 0 var(--accent-color);
-  margin-block-start: 15px;
 }
 
 .header__theme-title-text {
   font-weight: 700;
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
-  grid-row: 3;
-  height: 117px;
-  margin-block-end: 20px;
 }
 
 .main__content {
@@ -148,12 +145,19 @@ img {
   margin-block-end: 40px;
 }
 
+.main__content-list-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .mid-grid {
   margin-block-end: 50px;
 }
 
 .main__content-list-title {
-  font-family: IBM Plex Mono;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
@@ -171,7 +175,7 @@ img {
 }
 
 .main__content-list-item p {
-  font-family: IBM Plex Mono;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
   font-size: 18px;
   line-height: 23.4px;
@@ -210,28 +214,39 @@ img {
   display: grid;
 }
 
+.main__content-images {
+  margin-block-end: 12px;
+}
+
 .footer {
   height: 100vh;
   block-size: 100%;
   display: grid;
   min-height: 668px;
+  grid-template-rows: auto auto auto;
+  gap: 16rem;
 }
 
 .footer .theme-title {
+  grid-row: 2;
   text-align: center;
-  padding-block: 15.5rem;
   text-shadow: 2px 2px 0 var(--accent-color);
   font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
 }
 
 @media (width >= 768px) {
+  .header {
+    grid-template-rows: auto auto auto 1fr;
+    gap: 10.2rem;
+  }
+
   .decorated-zone::before {
     top: 10px;
     right: 10px;
   }
 
   .decorated-zone::after {
-    bottom: 10px;
+    bottom: 30px;
     left: 10px;
   }
 
@@ -266,13 +281,13 @@ img {
   }
 
   .grid-box {
-    grid-template-columns: 236px 472px;
-    margin-block-start: 40px;
+    grid-template-columns: 236px 1fr;
+    margin-block-start: 20px;
   }
 
   .mid-grid {
     margin-block-start: 50px;
-    margin-block-end: 0px;
+    margin-block-end: 40px;
   }
 
   .mid-grid .main__content-list {
@@ -298,13 +313,6 @@ img {
     gap: 10px;
   }
 
-  .main__content-list-item-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
   .main__content-list-item-image:nth-child(1) {
     grid-column: 1 / span 2;
   }
@@ -328,16 +336,20 @@ img {
   }
 
   .footer {
-    margin-block-start: 3rem;
+    margin-block-start: 2rem;
+    gap: 28.5rem;
   }
 
   .footer .theme-title {
     font-size: 120px;
-    padding-block-start: 27.5rem;
   }
 }
 
 @media (width >= 1024px) {
+  .header {
+    gap: 6.7rem;
+  }
+
   .header__theme-menu {
     display: grid;
     grid-template-columns: 3fr 1fr 3fr;
@@ -360,7 +372,6 @@ img {
     max-width: 491px;
     width: 100%;
     margin-inline-start: 31.5rem;
-    height: 71px;
   }
 
   .main__content {
@@ -372,7 +383,7 @@ img {
   }
 
   .grid-box {
-    grid-template-columns: 315px 649px;
+    grid-template-columns: 315px 1fr;
     gap: 20px;
   }
 
@@ -393,11 +404,6 @@ img {
     gap: 20px;
   }
 
-  .main__content-list-item .title-decor,
-  .main__content-images h2 {
-    font-weight: 700;
-  }
-
   .main__content-images .main__content-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -406,11 +412,11 @@ img {
 
   .footer {
     block-size: 100%;
-    margin-block-start: 3.6rem;
+    margin-block-start: 2.6rem;
+    gap: 0rem;
   }
 
   .footer .theme-title {
     font-size: 157px;
-    margin-block-start: -8rem;
   }
 }
