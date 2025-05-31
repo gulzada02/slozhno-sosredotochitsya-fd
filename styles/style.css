@@ -313,9 +313,9 @@ p + p {
   }
 
   .grid-box {
-    display: grid; 
+    display: grid;
     grid-template-columns: 236px 1fr;
-        margin-block-start: 1.2rem;
+    margin-block-start: 1.2rem;
   }
 
   .mid-grid {
@@ -330,11 +330,11 @@ p + p {
   }
 
   .grid-box-advice {
-      display: grid; 
+    display: grid;
     grid-template-columns: 236px 1fr;
   }
 
-  .add, 
+  .add,
   .content-block {
     margin-block-start: 0;
   }
