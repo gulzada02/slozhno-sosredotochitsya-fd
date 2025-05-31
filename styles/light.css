@@ -39,4 +39,8 @@
   --btn-color: #353430;
   --hover-color: #32312D66;
   }
+
+   .rec {
+    display: none;
+  }
 }
