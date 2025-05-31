@@ -40,7 +40,7 @@
   --hover-color: #32312D66;
   }
 
-   .rec {
+   .theme-auto .rec {
     display: none;
   }
 }
